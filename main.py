@@ -1,36 +1,23 @@
 import pygame
 from minesweeper import sprites
+from Sprites import Sprites
+import Constants
+from Board import Board
 
 pygame.init()
 
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+# 16 tiles high, 30 tiles wide
+
+SCREEN_WIDTH = (Constants.HORIZONTAL_TILE_COUNT + 2) * Constants.TILE_WIDTH
+SCREEN_HEIGHT = (Constants.VERTICAL_TILE_COUNT + 3) * Constants.TILE_HEIGHT + Constants.NUMBER_HEIGHT
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 player = pygame.Rect((300, 250, 50, 50))
 
-def view_scores(screen):
-    monochrome = sprites.ScoreSheets(sprites.ScoreSheets.monochrome)
-
-    builder = sprites.ScoreBuilder() # kwarg: sheet=two_thousand
-    score = builder.zero(monochrome).two(monochrome).four(monochrome).build()
-
-    screen.blit(score.zero, (13 * 0, 0))
-    screen.blit(score.one, (13 * 1, 0))
-    screen.blit(score.two, (13 * 2, 0))
-    screen.blit(score.three, (13 * 3, 0))
-    screen.blit(score.four, (13 * 4, 0))
-    screen.blit(score.five, (13 * 5, 0))
-    screen.blit(score.six, (13 * 6, 0))
-    screen.blit(score.seven, (13 * 7, 0))
-    screen.blit(score.eight, (13 * 8, 0))
-    screen.blit(score.nine, (13 * 9, 0))
-
-    tiles = score["9876543210"]
-    [screen.blit(tile, (13 * idx, 23)) for idx, tile in enumerate(tiles)]
-
-    pygame.display.update()
+s = Sprites()
+board = Board(screen, s)
+print(board.flattened_tiles.shape)
 
 run = True
 while run:
@@ -39,7 +26,7 @@ while run:
 
     pygame.draw.rect(screen, (255, 0, 0), player)
 
-    view_scores(screen)
+    board.draw()
 
     key = pygame.key.get_pressed()
     if key[pygame.K_a]:
