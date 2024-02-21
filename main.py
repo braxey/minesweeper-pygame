@@ -18,6 +18,7 @@ face = Face(screen, sprites)
 counter = Counter(screen, sprites)
 
 run = True
+mouse_press = ''
 while run:
 
     screen.fill((0, 0, 0))
@@ -31,9 +32,11 @@ while run:
         elif event.type == pygame.MOUSEBUTTONUP:
             mouse_position = pygame.mouse.get_pos()
             if is_click_on_board(mouse_position, board):
-                board.handle_click(mouse_position)
-            elif is_click_on_face(mouse_position, face):
+                board.handle_click(mouse_position, mouse_press)
+            elif is_click_on_face(mouse_position, face) and is_left_click(mouse_press):
                 face.handle_click()
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_press = pygame.mouse.get_pressed()
 
     pygame.display.update()
 
