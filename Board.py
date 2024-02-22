@@ -29,7 +29,6 @@ class Board:
         self.flattened_tiles = self.tiles.flatten()
 
     def __initialize_limits__(self):
-        # (x_low, x_high, y_low, y_high)
         x_low = Constants.HORIZONTAL_OFFSET * Constants.TILE_WIDTH
         x_high = x_low + Constants.HORIZONTAL_TILE_COUNT * Constants.TILE_WIDTH
         y_low = Constants.VERTICAL_OFFSET * Constants.TILE_HEIGHT + Constants.NUMBER_HEIGHT
@@ -53,21 +52,6 @@ class Board:
                         if (k == i and l == j) or (k < 0 or k >= Constants.VERTICAL_TILE_COUNT) or (l < 0 or l >= Constants.HORIZONTAL_TILE_COUNT): continue
                         adjacent += [self.tiles[k, l]]
                 self.tiles[i, j].set_adjacent_tiles(adjacent)
-
-
-                # lower_bound_i = np.max([0, i - 1])
-                # upper_bound_i = np.min([Constants.VERTICAL_TILE_COUNT, i + 2])
-                # lower_bound_j = np.max([0, j - 1])
-                # upper_bound_j = np.min([Constants.HORIZONTAL_TILE_COUNT, j + 2])
-
-                # tile_in_question = self.tiles[i, j]
-                # tiles_in_range = self.tiles[lower_bound_i:upper_bound_i, lower_bound_j:upper_bound_j].flatten()
-                # adjacent_tiles = tiles_in_range
-                # for k in range(len(tiles_in_range.flatten())):
-                #     if tiles_in_range[k].get_position() == tile_in_question.get_position():
-                #         adjacent_tiles = np.delete(adjacent_tiles, k)
-                #         break
-                # tile_in_question.set_adjacent_tiles(adjacent_tiles)
     
     def __get_tile_from_mouse_position__(self, mouse_position):
         x, y = mouse_position

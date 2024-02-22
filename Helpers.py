@@ -1,5 +1,3 @@
-import Constants
-
 def is_left_click(mouse_press):
     return mouse_press[0]
 
