@@ -16,12 +16,16 @@ class Face:
 
     def __initialize_limits__(self):
         x, y = self.position
-
-        # (x_low, x_high, y_low, y_high)
         return (x, x + Constants.FACE_WIDTH, y, y + Constants.FACE_HEIGHT)
 
     def draw(self):
         self.screen.blit(self.sprite, self.position)
 
-    def handle_click(self):
-        print('clicked face')
+    def reset(self):
+        self.sprite = self.face_sprites.smile
+
+    def set_winning_sprite(self):
+        self.sprite = self.face_sprites.winner
+
+    def set_losing_sprite(self):
+        self.sprite = self.face_sprites.dead

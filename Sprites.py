@@ -14,6 +14,7 @@ class Sprites:
         self.face = face_builder.build()
 
         self.__initialize_number_map__()
+        self.__initialize_tile_sprite_map__()
 
     def __initialize_number_map__(self):
         self.number_map = {
@@ -27,4 +28,22 @@ class Sprites:
             '7': self.number.seven,
             '8': self.number.eight,
             '9': self.number.nine
+        }
+
+    def __initialize_tile_sprite_map__(self):
+        self.tile_sprite_map = {
+            'unopened'      : self.tile.unopened,
+            'flag'          : self.tile.flag,
+            'mine'          : self.tile.mine,
+            'mine_red'      : self.tile.mine_red,
+            'mine_red_cross': self.tile.mine_red_cross,
+            '0'             : self.tile.empty,
+            '1'             : self.tile.one,
+            '2'             : self.tile.two,
+            '3'             : self.tile.three,
+            '4'             : self.tile.four,
+            '5'             : self.tile.five,
+            '6'             : self.tile.six,
+            '7'             : self.tile.seven,
+            '8'             : self.tile.eight
         }

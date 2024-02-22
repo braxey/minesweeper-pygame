@@ -4,7 +4,7 @@ def is_left_click(mouse_press):
     return mouse_press[0]
 
 def is_right_click(mouse_press):
-    return mouse_press[1]
+    return mouse_press[2]
 
 def is_click_on_board(mouse_position, board):
     return within_limits(mouse_position, board.limits)
