@@ -8,3 +8,8 @@ to change the board size or mine count, just change the values in `Constants.py`
 
 ### 30x16 with 99 mines
 ![image](https://github.com/braxey/minesweeper-pygame/assets/62025141/a36c6c49-fa4c-4a84-bd34-285e4c86a437)
+
+### dependencies needed
+* pygame
+* numpy
+* pygame-minesweeper-sprites
