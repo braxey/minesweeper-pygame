@@ -13,7 +13,7 @@ class Counter:
 
     def __initialize_count__(self):
         self.count_value = Constants.MINE_COUNT
-        self.count = str(Constants.MINE_COUNT).rjust(3, '0')
+        self.count = str(Constants.MINE_COUNT).rjust(Constants.NUMBER_COUNT, '0')
 
     def __initialize_numbers__(self):
         numbers = []
