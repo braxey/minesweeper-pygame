@@ -26,7 +26,7 @@ class Counter:
         self.flattened_numbers = self.numbers.flatten()
 
     def __update_counter_with_count_value__(self):
-        self.count = str(self.count_value).rjust(3, '0')
+        self.count = str(self.count_value).rjust(Constants.NUMBER_COUNT, '0')
         for i in range(len(self.numbers)):
             self.numbers[i].set_sprite(self.number_map[self.count[i]])
 
